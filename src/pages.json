@@ -1,0 +1,276 @@
+{
+    "easycom": {
+        // "autoscan": true,
+        "custom": {
+            "^z1-(.*)": "zjz1-h5-ui/packages/z1-$1/z1-$1.vue"
+        }
+    },
+    "globalStyle": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#fff",
+        "enablePullDownRefresh": false
+    },
+    "pages": [
+        {
+            "path": "pages/home/index",
+            "style": {
+                "navigationBarTitleText": "首页"
+            }
+        },
+        {
+            "path": "pages/goods/index",
+            "style": {
+                "navigationBarTitleText": "货源"
+            }
+        },
+        {
+            "path": "pages/waybill/index",
+            "style": {
+                "navigationBarTitleText": "运单"
+            }
+        },
+        {
+            "path": "pages/user/index",
+            "style": {
+                "navigationBarTitleText": "我的"
+            }
+        },
+        {
+            // @by oh-my-zerone 2026-10-09 AI 中心 tabbar 页
+            "path": "pages/ai/index",
+            "style": {
+                "navigationBarTitleText": "AI"
+            }
+        },
+        {
+            // SubPageLayout 容器组件联调测试页
+            "path": "pages/demo/subPageLayout/index",
+            "style": {
+                "navigationBarTitleText": "二级页面容器"
+            }
+        },
+        {
+            // 上传方法测试页（验证 useUpload 改造与体积优化）
+            "path": "pages/demo/subPageLayout/uploadTest",
+            "style": {
+                "navigationBarTitleText": "上传方法测试"
+            }
+        },
+        {
+            "path": "pages/waybill/waybillDetails/index",
+            "style": {
+                "navigationBarTitleText": "运单详情"
+            }
+        }
+    ],
+    "preloadRule": {
+        "pages/home/index": {
+            "network": "all",
+            "packages": ["__APP__"]
+        },
+        "pages/user/index": {
+            "network": "all",
+            "packages": ["pages_login"]
+        }
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#C0C4CC",
+        "selectedColor": "#3A65FF",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "height": "0px",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/goods/index",
+                "text": "货源"
+            },
+            {
+                "pagePath": "pages/waybill/index",
+                "text": "运单"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "text": "我的"
+            },
+            {
+                // @by oh-my-zerone 2026-10-09 AI 中心入口
+                "pagePath": "pages/ai/index",
+                "text": "AI"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "pages_login",
+            "pages": [
+                {
+                    "path": "login/index",
+                    "style": {
+                        "navigationBarTitleText": "登录"
+                    }
+                },
+                {
+                    // 注册页
+                    "path": "register/index",
+                    "style": {
+                        "navigationBarTitleText": "注册"
+                    }
+                },
+                {
+                    // 注册-设置密码
+                    "path": "register/setPassword/index",
+                    "style": {
+                        "navigationBarTitleText": "设置密码"
+                    }
+                },
+                {
+                    // 隐私政策
+                    "path": "agreement/privacy",
+                    "style": {
+                        "navigationBarTitleText": "隐私政策"
+                    }
+                },
+                {
+                    // 关于我们
+                    "path": "agreement/aboutUs",
+                    "style": {
+                        "navigationBarTitleText": "关于我们"
+                    }
+                },
+                {
+                    // 服务协议
+                    "path": "agreement/userService",
+                    "style": {
+                        "navigationBarTitleText": "服务协议"
+                    }
+                },
+                {
+                    // 设置
+                    "path": "setting/index",
+                    "style": {
+                        "navigationBarTitleText": "设置"
+                    }
+                },
+                {
+                    // 注销账号
+                    "path": "deletion/index",
+                    "style": {
+                        "navigationBarTitleText": "注销账号"
+                    }
+                },
+                {
+                    // 注销账号审核中
+                    "path": "deletion/pendding",
+                    "style": {
+                        "navigationBarTitleText": "注销账号审核中"
+                    }
+                },
+                {
+                    // 注销账号审核不通过
+                    "path": "deletion/rejected",
+                    "style": {
+                        "navigationBarTitleText": "注销账号审核不通过"
+                    }
+                },
+                {
+                    // 修改密码
+                    "path": "resetPassword/index",
+                    "style": {
+                        "navigationBarTitleText": "修改密码"
+                    }
+                }
+            ]
+        },
+        {
+            "root": "pages_common",
+            "pages": [
+                {
+                    "path": "webview/index"
+                },
+                {
+                    "path": "webview/external",
+                    "style": {
+                        "navigationBarTitleText": "服务协议"
+                    }
+                },
+                {
+                    // @by oh-my-zerone 从 pages_quoteCreate/chooseLocation 迁移的装/卸货地址选点页
+                    "path": "chooseLocation/index",
+                    "style": {
+                        "navigationBarTitleText": "选择位置"
+                    }
+                },
+                {
+                    // @by oh-my-zerone 从 pages_quoteCreate/mapPicker 迁移的地图选点页（置于 chooseLocation 下）
+                    "path": "chooseLocation/mapPicker/index",
+                    "style": {
+                        "navigationBarTitleText": "地图选点"
+                    }
+                }
+            ]
+        },
+        {
+            "root": "pages_auth",
+            "pages": [
+                {
+                    "path": "auth/index",
+                    "style": {
+                        "navigationBarTitleText": "认证信息"
+                    }
+                },
+                {
+                    "path": "auth/idCard",
+                    "style": {
+                        "navigationBarTitleText": "身份证信息"
+                    }
+                },
+                {
+                    "path": "auth/enterprise",
+                    "style": {
+                        "navigationBarTitleText": "企业信息"
+                    }
+                }
+            ]
+        },
+        {
+            // @by oh-my-zerone 2026-10-19 常用地址管理（地址簿）：列表页与新增/编辑页
+            "root": "pages_user",
+            "pages": [
+                {
+                    "path": "addressBook/list/index",
+                    "style": {
+                        "navigationBarTitleText": "常用地址"
+                    }
+                },
+                {
+                    "path": "addressBook/form/index",
+                    "style": {
+                        "navigationBarTitleText": "新增地址"
+                    }
+                },
+                {
+                    // @by oh-my-zerone 2026-10-27 推荐运力司机详情页
+                    "path": "transportCapacity/detail/index",
+                    "style": {
+                        "navigationBarTitleText": "运力详情"
+                    }
+                },
+                {
+                    // @by oh-my-zerone 2026-10-27 收藏（常用）司机列表页
+                    "path": "transportCapacity/collectList/index",
+                    "style": {
+                        "navigationBarTitleText": "常用司机"
+                    }
+                }
+            ]
+        }
+    ]
+}

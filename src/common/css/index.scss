@@ -1,0 +1,41 @@
+/**
+  公共样式
+*/
+uni-page-wrapper {
+    background: #f3f3f3;
+    box-sizing: border-box;
+}
+
+uni-page-body {
+    width: 100%;
+    height: 100%;
+    font-size: 28upx;
+    color: #333;
+    font-family: PingFang SC, PingFang SC;
+}
+
+div,
+view {
+    font-family: PingFang SC, PingFang SC;
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    list-style-type: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 修复 H5 环境下 uni.chooseLocation 顶部确定按钮被状态栏遮挡的问题 */
+.uni-system-open-location,
+.uni-system-choose-location {
+    top: var(--status-bar-height-custom) !important;
+    height: calc(100% - var(--status-bar-height-custom)) !important;
+    z-index: 999 !important;
+}

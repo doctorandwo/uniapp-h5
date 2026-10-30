@@ -1,0 +1,40 @@
+// 闪烁宽度
+$shineWidth: 40rpx;
+$shineWidthP: -$shineWidth;
+
+// 闪烁效果
+%skeleton-shade {
+    background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    backdrop-filter: blur(8rpx); /* 模糊效果 */
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    background-size: $shineWidth 100%;
+    background-repeat: no-repeat;
+    background-position: left $shineWidthP top 0;
+    animation: shine 1.5s ease infinite;
+}
+@keyframes shine {
+    to {
+        background-position: right $shineWidthP top 0;
+    }
+}
+
+/* 圆形旋转加载 */
+%spinner {
+    width: 40rpx;
+    height: 40rpx;
+    border: 4rpx solid rgba(58, 86, 255, 0.2);
+    border-top: 4rpx solid #3a56ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+

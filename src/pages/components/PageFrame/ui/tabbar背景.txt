@@ -1,0 +1,23 @@
+<svg viewBox="0 0 686 149" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="686.000000" height="149.000000" fill="none" customFrame="#000000">
+	<defs>
+		<g id="pixso_custom_effect_1">
+			<effect visibility="visible" effectType="backgroundBlur" saturation="0" stdDeviation="16" />
+		</g>
+		<filter id="filter_1" width="686.000000" height="149.000000" x="0.000000" y="0.000000" filterUnits="userSpaceOnUse" customEffect="url(#pixso_custom_effect_1)" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix" />
+			<feBlend result="shape" in="SourceGraphic" in2="BackgroundImageFix" mode="normal" />
+		</filter>
+		<clipPath id="outline_mask_1" transform="matrix(1,0,0,1,-0,-0)">
+			<path d="M59 149C26.4152 149 0 122.585 0 90C0 57.4152 26.4152 31 59 31L258.44 31C275.438 31 290.567 21.1644 304.63 11.616C315.429 4.28411 328.464 0 342.5 0C356.536 0 369.571 4.28412 380.37 11.6161C394.433 21.1644 409.562 31 426.56 31L627 31C659.585 31 686 57.4152 686 90C686 122.585 659.585 149 627 149L59 149Z" fill="rgb(255,255,255)" fill-rule="evenodd" />
+		</clipPath>
+	</defs>
+	<g data-pixso-skip-parse="true">
+		<foreignObject width="686.000000" height="149.000000" x="0.000000" y="0.000000">
+			<div xmlns="http://www.w3.org/1999/xhtml" style="clip-path:url(#outline_mask_1);height:100%;backdrop-filter:blur(8.000000px);width:100%;-webkit-backdrop-filter:blur(8.000000px);" />
+		</foreignObject>
+	</g>
+	<g filter="url(#filter_1)">
+		<path id="矢量 1" d="M426.56 31L627 31C659.585 31 686 57.4152 686 90C686 122.585 659.585 149 627 149L59 149C26.4152 149 0 122.585 0 90C0 57.4152 26.4152 31 59 31L258.44 31C275.438 31 290.567 21.1644 304.63 11.616C315.429 4.28411 328.464 0 342.5 0C356.536 0 369.571 4.28412 380.37 11.6161C394.433 21.1644 409.562 31 426.56 31Z" fill="rgb(255,255,255)" fill-opacity="0.26000002" fill-rule="evenodd" />
+		<path id="矢量 1" d="M426.56 31L627 31C659.585 31 686 57.4152 686 90C686 122.585 659.585 149 627 149L59 149C26.4152 149 0 122.585 0 90C0 57.4152 26.4152 31 59 31L258.44 31C275.438 31 290.567 21.1644 304.63 11.616C315.429 4.28411 328.464 0 342.5 0C356.536 0 369.571 4.28412 380.37 11.6161C394.433 21.1644 409.562 31 426.56 31ZM426.56 33Q414.737 33 401.504 26.6942Q393.163 22.7193 379.247 13.2707Q371.144 7.7696 362.197 4.95353L362.197 4.95333Q352.813 2 342.5 2Q332.191 2 322.81 4.95136L322.803 4.95347Q313.856 7.76954 305.754 13.2707Q291.837 22.7193 283.496 26.6942C274.674 30.8981 266.322 33 258.44 33L59 33C27.5197 33 2 58.5197 2 90C2 121.48 27.5197 147 59 147L627 147C658.48 147 684 121.48 684 90C684 58.5198 658.48 33 627 33L426.56 33Z" fill="rgb(255,255,255)" fill-rule="evenodd" />
+	</g>
+</svg>

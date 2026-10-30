@@ -1,0 +1,34 @@
+/* 兼容gap */
+// direction是指flex-direction的方向，区别于gap的row和column
+@mixin flex-gap($gap, $direction: row) {
+    // #ifdef H5
+    > * {
+        @if $direction == row {
+            margin-right: $gap;
+            &:last-child {
+                margin-right: 0;
+            }
+        } @else {
+            margin-bottom: $gap;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    // #endif
+    // #ifdef MP-WEIXIN
+    @if $direction == row {
+        column-gap: $gap;
+    } @else {
+        row-gap: $gap;
+    }
+    // #endif
+}
+
+/* 兼容inset */
+@mixin inset($size: 0) {
+    top: $size;
+    right: $size;
+    bottom: $size;
+    left: $size;
+}

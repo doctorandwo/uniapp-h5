@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "types": ["miniprogram-api-typings", "mini-types"],
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"],
+            "vue": ["node_modules/vue"]
+        }
+    }
+}

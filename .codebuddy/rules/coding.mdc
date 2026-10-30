@@ -1,0 +1,81 @@
+---
+description: ai-coding rule
+alwaysApply: true
+---
+
+# 编码约束
+
+## Ai标记
+
+对于生成的代码必须在顶部添加 **@by oh-my-zerone**的 文档注释或普通注释，说明代码来自Ai和时间
+
+示例1
+```js
+
+/**
+ * @by oh-my-zerone
+ */
+function add(a, b) {
+  return a + b;
+}
+```
+
+示例2
+```js
+
+
+function add(a, b) {
+    // @by oh-my-zerone
+  return a + b;
+}
+```
+
+
+## Import 分组
+
+`<script>` 或 `<script setup>` 内的 import 按下列顺序分块。块首使用小写英文注释；没有引用的块直接省略。
+
+1. `// components`：UI 组件库、公共组件、同步引入的 `.vue` 组件。
+2. `// hooks`：`vue` Composition API、业务 hooks、`@zerone/toolbox`、`model.js` 导出的解析函数。
+3. `// const`：常量、枚举、静态配置。
+4. `// services`：`@/api/*`、当前功能目录 `service.js`、其他请求模块。
+
+新增分组放在 `// services` 之后，并保持同目录风格一致。
+
+示例：
+
+```javascript
+// components
+import { Modal } from 'z1-design';
+import { RemoteSelect, UiSkeleton } from '@/components/UiCompoennts';
+
+// hooks
+import { ref, computed, watch } from 'vue';
+import { Hooks } from '@zerone/toolbox';
+import { parseDetail2Form, parseForm2Request } from '../model';
+
+// const
+import { AGENT_CONFIG_VERSION, AGENT_CONFIG_PLATFORM } from '../constants';
+
+// services
+import { addAIManage, updateAIManage, getProductPageList } from '@/api/ai.js';
+import { fetchAgentClassifyTree, ApiGetAgentDetail } from '../service.js';
+```
+
+
+## 跨端约束（H5 / 微信小程序）
+
+一句话规则：**函数不进 props，回调不进事件载荷；跨组件只传可序列化数据，行为一律用 `$emit` 上抛。**
+
+1. 禁止把含函数的对象作为 prop 下发（如 `actions`、`handlers`、`validators`）。小程序端组件间 props 走 JSON 序列化，函数成员会被剥离，直到点击时才暴露 `_vm.eN is not a function`。
+2. 禁止把回调函数作为 `$emit` 事件载荷（如 `$emit('validate', cb)`、`@validate="cb => ..."`）。改为子抛纯数据事件，结果以字符串 prop 下发。
+3. 禁止「父级持有对象 + 子组件 `v-model` 回写」的受控表单。子组件拿到的是父级数据快照，写入不回流；表单值由使用它的组件本地持有，提交时以可序列化载荷上抛。
+4. 模板事件不要直接绑定 props 对象的方法（如 `@click="actions.submit"`），统一绑定到本组件 `methods`。
+
+正确范式：
+
+- 下发状态：props 只传字符串 / 数字 / 布尔 / 纯数据对象数组。
+- 触发行为：子 `$emit` → 页面监听 → 调用 hook actions。
+- 需要同步结果（如失焦校验）：子抛纯数据事件 → 本地纯规则计算 → 结果以字符串 prop 下发。
+
+完整规则、机制证据与 Review 检查清单见 `docs/agent/rules-mp.md`。
