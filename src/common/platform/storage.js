@@ -24,7 +24,9 @@ const TokenKey = 'loginToken';
  * @returns {string} token
  */
 export function getToken() {
-    return uni.getStorageSync(TokenKey);
+    // @by oh-my-zerone R-A: 以 getAuthorization 为单一真相源（桥优先、localStorage 回退），
+    // 消除原生仅桥注入 token 时启动门禁误判未登录、跳过 GetInfo 的割裂态
+    return getAuthorization();
 }
 
 /**
@@ -70,3 +72,5 @@ export function getAuthorization() {
 export function isLogin() {
     return !!getToken();
 }
+
+

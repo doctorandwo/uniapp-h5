@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import Store from '@/store';
 import Loader from '../loader';
 import { useDefineConfig } from '@/common/platform/config';
@@ -13,18 +12,15 @@ async function createApp(app) {
     // z1-h5组件库头部信息配置
     useDefineConfig(Store.state.header.headerInfo, Store.state.header.statusBarHeight);
 
-    if (getToken()) {
-        Store.dispatch('GetInfo').finally(() => {
-            app.$mount();
-        });
-    } else app.$mount();
+    // @by oh-my-zerone R-D: 立即挂载，GetInfo 并行发起、不阻塞首屏
+    app.$mount();
+    const hasToken = getToken();
+    if (hasToken) {
+        Store.dispatch('GetInfo');
+    }
 
-    // 关闭原生Loading
-    Vue.nextTick(() => {
-        setTimeout(() => {
-            uni.useJsBridge({ name: 'hideLoadingView' });
-        }, 100);
-    });
+    // @by oh-my-zerone R-H: 应用实例挂载完成后立即关闭原生 loading
+    uni.useJsBridge({ name: 'hideLoadingView' });
 }
 
 export { createApp };

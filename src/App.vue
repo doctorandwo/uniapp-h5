@@ -31,7 +31,8 @@ export default {
         this.init();
     },
     created() {
-        console.log('initWX', getCurrentPages());
+        console.log('项目启动，当前页面栈==', getCurrentPages());
+        console.log('VUE_APP_IS_LOCAL==', process.env.VUE_APP_IS_LOCAL);
     },
     methods: {
         init() {

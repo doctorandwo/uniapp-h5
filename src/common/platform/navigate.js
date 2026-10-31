@@ -67,7 +67,11 @@ export { Nav };
  * 统一返回登录页处理
  */
 export function useToLoginView() {
-    uni.navigateTo({ url: LOGIN_PAGE });
+    if (useCanIUseJsBridge()) {
+        console.log('返回原生登录页')
+        useJsBridge({ name: 'navigate.toLogin' });
+    }
+    else uni.navigateTo({ url: LOGIN_PAGE });
 }
 
 /**
